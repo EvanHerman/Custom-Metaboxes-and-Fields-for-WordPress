@@ -445,8 +445,13 @@ class cmb_Meta_Box_types {
 
 	public function text_date_timestamp() {
 		$meta_value = $this->field->escaped_value();
-		$value = ! empty( $meta_value ) ? date( $this->field->args( 'date_format' ), $meta_value ) : '';
-		return $this->input( array( 'class' => 'cmb_text_small cmb_datepicker', 'value' => $value ) );
+		$default = $this->field->args['default'] = $this->field->args( 'default' );
+		if( $default ) {
+			$value = $default;
+		} else {
+			$value = ! empty( $meta_value ) ? date( $this->field->args( 'date_format' ), $meta_value ) : '';
+		}
+		return $this->input( array( 'class' => 'cmb_text_small cmb_datepicker test', 'value' => $value ) );
 	}
 
 	public function text_datetime_timestamp( $meta_value = '' ) {
