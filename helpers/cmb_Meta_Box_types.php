@@ -445,7 +445,7 @@ class cmb_Meta_Box_types {
 
 	public function text_date_timestamp() {
 		$meta_value = $this->field->escaped_value();
-		$default = $this->field->args['default'] = $this->field->args( 'default' );
+		$default = $this->field->args( 'default' );
 		if( $default ) {
 			$value = $default;
 		} else {
